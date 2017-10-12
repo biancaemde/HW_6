@@ -1,0 +1,97 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red67\green67\blue67;\red255\green255\blue255;\red40\green145\blue225;
+\red38\green38\blue38;\red242\green242\blue242;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sa200
+
+\f0\b\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Scraping Numbers from HTML using BeautifulSoup
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \'a0In this assignment you will write a Python program similar to\'a0{\field{\*\fldinst{HYPERLINK "http://www.py4e.com/code3/urllink2.py"}}{\fldrslt \cf4 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 http://www.py4e.com/code3/urllink2.py}}. The program will use\'a0
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 urllib
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \'a0to read the HTML from the data files below, and parse the data, extracting numbers and compute the sum of the numbers in the file.\
+We provide two files for this assignment. One is a sample file where we give you the sum for your testing and the other is the actual data you need to process for the assignment.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Sample data:\'a0{\field{\*\fldinst{HYPERLINK "http://py4e-data.dr-chuck.net/comments_42.html"}}{\fldrslt \cf4 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 http://py4e-data.dr-chuck.net/comments_42.html}}\'a0(Sum=2553)\cb1 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Actual data:\'a0{\field{\*\fldinst{HYPERLINK "http://py4e-data.dr-chuck.net/comments_38751.html"}}{\fldrslt \cf4 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 http://py4e-data.dr-chuck.net/comments_38751.html}}\'a0(Sum ends with 28)\cb1 \uc0\u8232 \
+\pard\pardeftab720
+\cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 You do not need to save these files to your folder since your program will read the data directly from the URL.\'a0
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Note:
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \'a0Each student will have a distinct data url for the assignment - so only use your own data url for analysis.\
+\pard\pardeftab720\sa200
+\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \
+\pard\pardeftab720
+
+\b \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Data Format\
+\pard\pardeftab720\sa200
+
+\b0 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 The file is a table of names and comment counts. You can ignore most of the data in the file except for lines like the following:\
+\pard\pardeftab720\sl360
+
+\f1\fs26 \cf5 \cb6 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 <tr><td>Modu</td><td><span class="comments">90</span></td></tr>\
+<tr><td>Kenzie</td><td><span class="comments">88</span></td></tr>\
+<tr><td>Hubert</td><td><span class="comments">87</span></td></tr>\
+\pard\pardeftab720
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 You are to find all the <span> tags in the file and pull out the numbers from the tag and sum the numbers.\
+\pard\pardeftab720\sa200
+\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Look at the\'a0{\field{\*\fldinst{HYPERLINK "http://www.py4e.com/code3/urllink2.py"}}{\fldrslt \cf4 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 sample code}}\'a0provided. It shows how to find all of a certain kind of tag, loop through the tags and extract the various aspects of the tags.\
+\pard\pardeftab720\sl360
+
+\f1\fs26 \cf5 \cb6 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 ...\
+# Retrieve all of the anchor tags\
+tags = soup('a')\
+for tag in tags:\
+   # Look at the parts of a tag\
+   print 'TAG:',tag\
+   print 'URL:',tag.get('href', None)\
+   print 'Contents:',tag.contents[0]\
+   print 'Attrs:',tag.attrs\
+\pard\pardeftab720
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 You need to adjust this code to look for\'a0
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 span
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \'a0tags and pull out the text content of the span tag, convert them to integers and add them up to complete the assignment.\
+\pard\pardeftab720\sa200
+\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \
+\pard\pardeftab720\sa200
+
+\b \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Sample Execution
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \
+\
+\pard\pardeftab720\sl360
+
+\f1\fs26 \cf5 \cb6 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 $ python3 solution.py\
+Enter - http://py4e-data.dr-chuck.net/comments_42.html\
+Count 50\
+Sum 2...\
+}
